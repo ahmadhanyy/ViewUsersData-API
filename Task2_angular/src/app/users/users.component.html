@@ -1,0 +1,69 @@
+<blockquote class="blockquote ml-5">
+  <h2>Users Informations</h2>
+  <footer class="blockquote-footer">
+      <i>All users data.</i>
+  </footer>
+</blockquote>
+<div class="container">
+  <button type="submit" class="btn btn-success" routerLink="/AddUser-Page">
+    Add User
+  </button>
+  <div class="table grid-table table-striped" style="width:50%">
+    <div class="thead">
+      <div class="tr">
+        <div class="td">
+          User ID
+        </div>
+        <div class="td">
+          User Name
+        </div>
+        <div class="td"></div>
+        <div class="td"></div>
+        <div class="td"></div>
+        <div class="td"></div>
+      </div>
+    </div>
+    <div class="tbody">
+      <ul class="tr" *ngFor="let u of usersList; let i=index;">
+        <div class="td">
+          <input class="text" value="{{u.id}}" disabled="true">
+        </div>
+        <div class="td">
+          <div *ngIf="startEdit[i]; then startingEdit; else stopingEdit"></div>
+          <ng-template #stopingEdit>
+            <input class="text" value="{{u.name}}" disabled="true">
+          </ng-template>
+          <ng-template #startingEdit>
+            <input type="text" [(ngModel)]="newName" placeholder="Enter Name">
+          </ng-template>
+        </div>
+        <div class="td">
+          <div *ngIf="startEdit[i]; then startingEdit1; else stopingEdit1"></div>
+          <ng-template #stopingEdit1>
+            <button type="submit" class="btn btn-dark" (click)="openEditView(i)">
+              Edit
+            </button>
+          </ng-template>
+          <ng-template #startingEdit1>
+            <button type="submit" class="btn btn-success" (click)="editUser(u.id, i)">
+              Save
+            </button>
+          </ng-template>
+        </div>
+        <div class="td">
+          <div *ngIf="startEdit[i]; then startingEdit2; else stopingEdit2"></div>
+          <ng-template #stopingEdit2>
+            <button type="submit" class="btn btn-danger" (click)="deleteUser(u.id)">
+              Delete
+            </button>
+          </ng-template>
+          <ng-template #startingEdit2>
+            <button type="submit" class="btn btn-danger" (click)="closeEditView(i)">
+              Cancle
+            </button>
+          </ng-template>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

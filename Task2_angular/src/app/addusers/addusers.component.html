@@ -1,0 +1,29 @@
+<blockquote class="blockquote ml-5">
+  <h2>Add User</h2>
+  <footer class="blockquote-footer">
+    <i>Add new user to your system.</i>
+  </footer>
+</blockquote>
+<div class="container">
+  <div class="table grid-table table-striped" style="width:50%">
+    <div class="thead">
+      <div class="tr">
+        <div class="td">Add New User</div>
+        <div class="td"></div>
+      </div>
+    </div>
+    <div class="tbody">
+      <div class="td">
+        User Name : <input type="text" [(ngModel)]="newNameToAdd" placeholder="Enter Name">
+      </div>
+    </div>
+  </div>
+  <div class="save">
+    <button type="submit" class="btn btn-success" (click)="addUser()" routerLink="/">
+      Save
+    </button>
+    <button type="submit" class="btn btn-danger" routerLink="/">
+      Cancle
+    </button>
+  </div>
+</div>
