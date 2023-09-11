@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Y74Ihi7Rd23c4Uqd/uR0mcoJ0xYLosbyUunh2+mBgXOm7kJ3sBkAEZGUReH/Zbwu7CxmOH4+flzQhj/GSQsvEg==",
+  "dgSpecHash": "WGYHCMgCuqRnnqQpObaP58jfvMBaOwQBhVg/By66Yw59jQmA7bFb6dSBry0VI4h6yGaiWbkQHzg32IXbajGrlw==",
   "success": true,
-  "projectFilePath": "D:\\Code\\Task2\\Task2_.net\\Task2\\Task2\\Task2.csproj",
+  "projectFilePath": "D:\\Gethub\\ViewUsersData-API\\Task2_.net\\Task2\\Task2\\Task2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lap me\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\lap me\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

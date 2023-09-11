@@ -3976,11 +3976,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Code\\Task2\\Task2_.net\\Task2\\Task2\\Task2.csproj",
+      "projectUniqueName": "D:\\Gethub\\ViewUsersData-API\\Task2_.net\\Task2\\Task2\\Task2.csproj",
       "projectName": "Task2",
-      "projectPath": "D:\\Code\\Task2\\Task2_.net\\Task2\\Task2\\Task2.csproj",
+      "projectPath": "D:\\Gethub\\ViewUsersData-API\\Task2_.net\\Task2\\Task2\\Task2.csproj",
       "packagesPath": "C:\\Users\\lap me\\.nuget\\packages\\",
-      "outputPath": "D:\\Code\\Task2\\Task2_.net\\Task2\\Task2\\obj\\",
+      "outputPath": "D:\\Gethub\\ViewUsersData-API\\Task2_.net\\Task2\\Task2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lap me\\AppData\\Roaming\\NuGet\\NuGet.Config",

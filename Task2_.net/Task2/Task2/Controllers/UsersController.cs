@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
+using System.ComponentModel.DataAnnotations;
+using Task2.Dtos;
 using Task2.Models;
 
 namespace Task2.Controllers
@@ -10,16 +14,19 @@ namespace Task2.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        public UsersController(AppDbContext db)
+        public UsersController(AppDbContext db, IMapper mapper)
         {
             _db = db;
+            _mapper = mapper;
         }
+        private readonly IMapper _mapper;
         private readonly AppDbContext _db;
 
         [HttpGet]
         public async Task<IActionResult> getUsers()
         {
-            var usersList = _db.UsersTable.Where(x => x.IsActive == true).ToList();
+            var usersFromDb = _db.UsersTable.Where(x => x.IsActive == true).ToList();
+            var usersList = _mapper.Map<IEnumerable<UserDto>>(usersFromDb);
             return Ok(usersList);
         }
         [HttpPost]
@@ -31,15 +38,14 @@ namespace Task2.Controllers
             return Ok(user);
         }
         [HttpPut]
-        public async Task<IActionResult> updateUser(User newUser)
+        public async Task<IActionResult> updateUser(UserDto newUser)
         {
             var user = await _db.UsersTable.SingleOrDefaultAsync(x => x.Id == newUser.Id);
             if (user == null)
             {
                 return NotFound($"User ID {newUser.Id} not exist ");
             }
-            user.Name = newUser.Name;
-            user.IsActive = newUser.IsActive;
+            user = _mapper.Map<User>(newUser);
             _db.SaveChanges();
             return Ok(user);
         }

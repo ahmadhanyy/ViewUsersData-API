@@ -8,7 +8,7 @@ import { UsersService } from '../apiServices/users.service';
 })
 export class AddusersComponent implements OnInit {
   public newNameToAdd : string = '';
-  constructor(private userService : UsersService)
+  constructor(private userServ : UsersService)
   {
   }
   ngOnInit()
@@ -16,6 +16,8 @@ export class AddusersComponent implements OnInit {
   }
   addUser()
   {
-    this.userService.postU(this.newNameToAdd);
+    this.userServ.postU(this.newNameToAdd).subscribe(data => console.log(data));
+    console.log(this.newNameToAdd);
+    this.newNameToAdd = ''
   }
 }

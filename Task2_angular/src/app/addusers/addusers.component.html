@@ -13,17 +13,19 @@
       </div>
     </div>
     <div class="tbody">
-      <div class="td">
-        User Name : <input type="text" [(ngModel)]="newNameToAdd" placeholder="Enter Name">
+      <div class="tr">
+        <div class="td">
+          User Name :<input type="text" [(ngModel)]="newNameToAdd" placeholder="Enter Name">
+        </div>
       </div>
     </div>
   </div>
   <div class="save">
-    <button type="submit" class="btn btn-success" (click)="addUser()" routerLink="/">
-      Save
+    <button type="submit" class="btn btn-success" (click)="addUser()">
+      Add
     </button>
     <button type="submit" class="btn btn-danger" routerLink="/">
-      Cancle
+      Back
     </button>
   </div>
 </div>

@@ -20,7 +20,7 @@ builder.Services.AddCors(options => options.AddPolicy(
         policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
     })) ;
 
-builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 

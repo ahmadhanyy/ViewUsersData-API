@@ -31,8 +31,7 @@ export class UsersComponent implements OnInit {
   {
     this.user = {
       "id": id,
-      "name": this.newName,
-      "isActive": true
+      "name": this.newName
     };
     this.userService.putU(this.user).subscribe(data => {this.getUser()});
     this.startEdit[index] = false;
