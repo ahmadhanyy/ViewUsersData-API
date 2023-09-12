@@ -30,9 +30,10 @@ namespace Task2.Controllers
             return Ok(usersList);
         }
         [HttpPost]
-        public async Task<IActionResult> addUser(string username)
+        public async Task<IActionResult> addUser(UserDetailesDto newUser)
         {
-            User user = new() { Name = username };
+            User user = new();
+            user = _mapper.Map<User>(newUser);
             await _db.UsersTable.AddAsync(user);
             _db.SaveChanges();
             return Ok(user);
@@ -45,7 +46,8 @@ namespace Task2.Controllers
             {
                 return NotFound($"User ID {newUser.Id} not exist ");
             }
-            user = _mapper.Map<User>(newUser);
+            //user = _mapper.Map<User>(newUser);
+            user.Name = newUser.Name;
             _db.SaveChanges();
             return Ok(user);
         }

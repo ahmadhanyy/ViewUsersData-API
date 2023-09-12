@@ -18,7 +18,7 @@ builder.Services.AddCors(options => options.AddPolicy(
     policy =>
     {
         policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
-    })) ;
+    }));
 
 builder.Services.AddAutoMapper(typeof(Program));
 

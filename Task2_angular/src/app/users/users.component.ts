@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../apiServices/users.service';
-import { IUser } from '../userInterface';
+import { IUser, IUserDetailes } from '../userInterface';
 
 @Component({
   selector: 'app-users',
@@ -11,6 +11,8 @@ export class UsersComponent implements OnInit {
   public usersList: any = [];
   public startEdit: any = [];
   public user : IUser | undefined;
+  public userDetailes : IUserDetailes | undefined;
+  public newNameToAdd : string = '';
   public newName : string = '';
   constructor(private userService : UsersService)
   {
@@ -18,6 +20,17 @@ export class UsersComponent implements OnInit {
   ngOnInit()
   {
     this.getUser();
+    this.addUser();
+  }
+  addUser()
+  {
+    this.newNameToAdd = this.userService.getUserName();
+    this.userDetailes = {
+      "name": this.newNameToAdd
+    };
+    this.userService.postU(this.userDetailes).subscribe(data => {this.getUser()});
+    console.log(this.newNameToAdd);
+    this.newNameToAdd = ''
   }
   getUser()
   {
@@ -31,7 +44,8 @@ export class UsersComponent implements OnInit {
   {
     this.user = {
       "id": id,
-      "name": this.newName
+      "name": this.newName,
+      "isActive": true
     };
     this.userService.putU(this.user).subscribe(data => {this.getUser()});
     this.startEdit[index] = false;

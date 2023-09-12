@@ -2,12 +2,9 @@
 
 namespace Task2.Dtos
 {
-    public class UserDto
+    public class UserDetailesDto
     {
-        [Key]
-        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public bool IsActive { get; set; } = true;
     }
 }

@@ -14,10 +14,13 @@ export class AddusersComponent implements OnInit {
   ngOnInit()
   {
   }
-  addUser()
+  sendName()
   {
-    this.userServ.postU(this.newNameToAdd).subscribe(data => console.log(data));
-    console.log(this.newNameToAdd);
-    this.newNameToAdd = ''
+    this.userServ.sendUserName(this.newNameToAdd);
+    this.newNameToAdd = '';
+  }
+  backBtn()
+  {
+    this.userServ.sendUserName('');
   }
 }

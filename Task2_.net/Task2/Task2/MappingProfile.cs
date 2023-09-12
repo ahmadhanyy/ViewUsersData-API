@@ -6,9 +6,10 @@ namespace Task2
 {
     public class MappingProfile : Profile
     {
-        public MappingProfile() 
+        public MappingProfile()
         {
             CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<User, UserDetailesDto>().ReverseMap();
         }
     }
 }
